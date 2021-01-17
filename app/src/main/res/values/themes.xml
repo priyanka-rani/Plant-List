@@ -13,9 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="Theme.Plants.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
-
-    <style name="TextAppearance.Plants.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
-        <item name="android:textColor">?attr/colorOnSurface</item>
+    <style name="Theme.Plants.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <!-- THIS is where you can color the arrow! -->
+        <item name="android:textColorPrimary">?colorSecondary</item>
+        <item name="colorControlNormal">?colorOnSurface</item>
+        <item name="actionMenuTextColor">@color/black</item>
     </style>
 </resources>

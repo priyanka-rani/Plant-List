@@ -62,10 +62,10 @@ class PlantsMediator @Inject constructor(
             // Store loaded data, and next key in transaction, so that
             // they're always consistent.
             database.withTransaction {
-                if (loadType == LoadType.REFRESH) {
+                /*if (loadType == LoadType.REFRESH) {
                     remoteKeyDao.deleteByQuery()
                     plantDao.clearAll()
-                }
+                }*/
 
                 // Update RemoteKey for this query.
                 response.links.next?.substringAfterLast("=")?.toIntOrNull()?.let {

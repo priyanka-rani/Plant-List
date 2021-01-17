@@ -19,7 +19,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.pri.plants.data.Plant"/>
+
+        <import type="com.pri.plants.data.Plant" />
+
         <variable
             name="viewModel"
             type="com.pri.plants.ui.plantdetails.PlantDetailsViewModel" />
@@ -28,8 +30,8 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:background="?attr/colorSurface"
+        android:fitsSystemWindows="true"
         tools:context="com.google.samples.apps.sunflower.GardenActivity"
         tools:ignore="MergeRootFrame">
 
@@ -37,21 +39,17 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/plant_detail_app_bar_height"
-            android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:animateLayoutChanges="true"
             android:stateListAnimator="@animator/show_toolbar"
-            android:background="?attr/colorSurface"
-            android:animateLayoutChanges="true">
+            android:fitsSystemWindows="true"
+            android:theme="@style/Theme.Plants.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/plant_detail_app_bar_height"
                 android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorSurface"
-                app:statusBarScrim="?attr/colorSurface"
-                app:collapsedTitleGravity="center"
-                app:collapsedTitleTextAppearance="@style/TextAppearance.Plants.Toolbar.Text"
+                app:contentScrim="?colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:title="@{viewModel.plant.common_name}"
                 app:titleEnabled="false"
@@ -60,22 +58,18 @@
                 <ImageView
                     android:id="@+id/detail_image"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/plant_detail_app_bar_height"
+                    android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     app:imageFromUrl="@{viewModel.plant.image_url}"
                     app:layout_collapseMode="parallax" />
-
-                <com.google.android.material.appbar.MaterialToolbar
+                <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@android:color/transparent"
-                    app:titleTextColor="?attr/colorOnSurface"
-                    app:layout_collapseMode="pin"
                     app:contentInsetStartWithNavigation="0dp"
-                    app:navigationIcon="@drawable/ic_nav_back"/>
-
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_nav_back" />
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -99,9 +93,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_small"
-                    android:gravity="center_horizontal"
                     android:clickable="true"
                     android:focusable="true"
+                    android:gravity="center_horizontal"
                     android:text="@{viewModel.plant.common_name}"
                     android:textAppearance="?attr/textAppearanceHeadline5"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -131,13 +125,13 @@
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:gravity="center_horizontal"
+                    android:text="@{viewModel.plant.scientific_name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/plant_watering_header"
-                    android:text="@{viewModel.plant.scientific_name}"
                     tools:text="Nymphia nouchali" />
 
-                        <TextView
+                <TextView
                     android:id="@+id/plant_description"
                     style="?android:attr/textAppearanceMedium"
                     android:layout_width="0dp"
@@ -145,8 +139,8 @@
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginTop="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_small"
-                    android:textIsSelectable="true"
                     android:minHeight="@dimen/plant_description_min_height"
+                    android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/plant_scientific_name"

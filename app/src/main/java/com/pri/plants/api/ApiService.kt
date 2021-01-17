@@ -38,6 +38,7 @@ interface ApiService {
     ): PlantListResponse
 
     companion object {
+        private const val API_URL = "${BuildConfig.BASE_URL}/api/v1/"
 
         fun create(): ApiService {
             val logger = HttpLoggingInterceptor().apply { level = Level.BODY }
@@ -47,7 +48,7 @@ interface ApiService {
                     .build()
 
             return Retrofit.Builder()
-                    .baseUrl(BuildConfig.BASE_URL)
+                    .baseUrl(API_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

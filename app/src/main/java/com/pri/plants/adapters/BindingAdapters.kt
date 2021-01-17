@@ -39,7 +39,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
 @BindingAdapter("textHtml")
 fun bindTextHtml(view: TextView, description: String?) {
     if (description != null) {
-        view.text = HtmlCompat.fromHtml(description, HtmlCompat.FROM_HTML_MODE_COMPACT)
+        view.text = HtmlCompat.fromHtml(description, HtmlCompat.FROM_HTML_MODE_LEGACY)
         view.movementMethod = LinkMovementMethod.getInstance()
     } else {
         view.text = ""

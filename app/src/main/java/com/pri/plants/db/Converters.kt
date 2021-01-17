@@ -19,6 +19,7 @@ package com.pri.plants.db
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.pri.plants.data.PlantLinks
 import java.util.*
 
 /**
@@ -36,6 +37,19 @@ class Converters {
 
     @TypeConverter
     fun stringListToString(someObjects: List<String>): String {
+        return Gson().toJson(someObjects)
+    }
+    @TypeConverter
+    fun stringToPlantLink(data: String?): PlantLinks? {
+        if (data == null) {
+            return null
+        }
+        val gson = Gson()
+        return gson.fromJson(data, object : TypeToken<PlantLinks>() {}.type)
+    }
+
+    @TypeConverter
+    fun plantLinksToString(someObjects: PlantLinks): String {
         return Gson().toJson(someObjects)
     }
 }

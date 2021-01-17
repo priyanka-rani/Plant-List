@@ -13,7 +13,7 @@ import com.pri.plants.data.RemoteKey
         Plant::class,
         RemoteKey::class
     ],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

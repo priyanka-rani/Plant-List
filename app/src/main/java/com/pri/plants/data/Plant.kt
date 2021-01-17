@@ -5,6 +5,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import com.pri.plants.BuildConfig
 import com.pri.plants.db.Converters
 
 @Entity(tableName = "plants")
@@ -25,9 +26,22 @@ data class Plant(
     @SerializedName("synonyms") var synonyms: List<String>? = null,
     @SerializedName("genus") var genus: String? = null,
     @SerializedName("family") var family: String? = null,
-    @Ignore
-    @SerializedName("links") var links: Links? = null
+    @SerializedName("links") var links: PlantLinks? = null
 ){
     val description
-    get() = "<b>Genus:<\b> $genus\nFamily: $family"
+    get() = "Also known as ${synonyms?.joinToString()} <br><br>" +
+            "<b>Slug:</b> $slug <br>" +
+            "<b>Genus:</b> $genus <br>" +
+            "<b>Family:</b> $family <br>" +
+            "<b>Family Common Name:</b> $family_common_name <br>" +
+            "<b>Invented in:</b> $year <br>"+
+            "<b>Author:</b> $author <br>"+
+            "<b>Bibliography:</b> $bibliography <br>"+
+            "<a href=${BuildConfig.BASE_URL}${links?.self}?token=${BuildConfig.API_TOKEN}>See More</a>"
 }
+
+data class PlantLinks(
+    @SerializedName("self") val self: String?,
+    @SerializedName("plant") val plant: String?,
+    @SerializedName("next") val next: String?
+)
