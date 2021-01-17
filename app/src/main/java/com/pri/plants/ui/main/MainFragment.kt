@@ -6,27 +6,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.pri.plants.R
+import com.pri.plants.adapters.PlantAdapter
+import com.pri.plants.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
-    private lateinit var viewModel: MainViewModel
+    private val adapter = PlantAdapter()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        val binding = MainFragmentBinding.inflate(inflater, container, false)
+        context?:return binding.root
+        binding.plantList.adapter = adapter
+        binding.toolbar.setNavigationOnClickListener {view ->
+            view.findNavController().navigateUp()
+        }
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        lifecycleScope.launchWhenResumed {
+            viewModel.getPlantList().collectLatest {
+                adapter.submitData(it)
+            }
+        }
     }
 
 }

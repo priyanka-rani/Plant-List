@@ -2,8 +2,9 @@ package com.pri.plants
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pri.plants.ui.main.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

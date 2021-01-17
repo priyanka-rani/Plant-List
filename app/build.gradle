@@ -17,6 +17,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "BASE_URL", BASE_URL
+        buildConfigField "String", "API_TOKEN", API_TOKEN
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,10 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
-    def room_version = "2.2.6"
+    def room_version = "2.3.0-alpha04"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
@@ -76,4 +82,5 @@ dependencies {
     implementation "com.jakewharton.timber:timber:4.7.1"
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+    implementation "androidx.paging:paging-runtime-ktx:3.0.0-alpha12"
 }

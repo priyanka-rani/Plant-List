@@ -4,17 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.pri.plants.data.Plant
+import com.pri.plants.data.RemoteKey
 
 @Database(
-        entities = [
-            Plant::class
-        ],
-        version = 1,
-        exportSchema = false
+    entities = [
+        Plant::class,
+        RemoteKey::class
+    ],
+    version = 2,
+    exportSchema = false
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun plantDao(): Plant
+    abstract fun plantDao(): PlantDao
+    abstract fun remoteKeyDao(): RemoteKeyDao
 
     companion object {
         private const val DB_NAME = "cart_database"
@@ -31,8 +36,8 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME)
-                    .fallbackToDestructiveMigration()
-                    .build()
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }
