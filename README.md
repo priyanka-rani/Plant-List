@@ -1,5 +1,5 @@
 # Plant-List
-This is a sample app that uses Android Architecture Components and JetPack to show List of Plants and their details from public repository.
+This is a sample app that uses Android Architecture Components and JetPack to show List of Plants and their details from public repository. The App mainly based on Android Sunflower App which illustrates Android development best practices with Android Jetpack. But unlike Sunflower App it loads data from network and also uses Pagination with Jetpack's Paging3 Library.
 
 **Plant List Api From:**
 
