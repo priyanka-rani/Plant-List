@@ -43,5 +43,5 @@ data class Plant(
 data class PlantLinks(
     @SerializedName("self") val self: String?,
     @SerializedName("plant") val plant: String?,
-    @SerializedName("next") val next: String?
+    @SerializedName("genus") val genus: String?
 )

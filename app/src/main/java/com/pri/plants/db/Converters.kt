@@ -27,17 +27,16 @@ import java.util.*
  */
 class Converters {
     @TypeConverter
-    fun stringToStringList(data: String?): List<String> {
+    fun stringToStringList(data: String?): List<String>? {
         if (data == null) {
-            return Collections.emptyList()
+            return null
         }
-        val gson = Gson()
-        return gson.fromJson(data, object : TypeToken<List<String>>() {}.type)
+        return data.split(",").map { it.trim() }
     }
 
     @TypeConverter
-    fun stringListToString(someObjects: List<String>): String {
-        return Gson().toJson(someObjects)
+    fun stringListToString(someObjects: List<String>?): String? {
+        return someObjects?.joinToString()
     }
     @TypeConverter
     fun stringToPlantLink(data: String?): PlantLinks? {
@@ -49,7 +48,7 @@ class Converters {
     }
 
     @TypeConverter
-    fun plantLinksToString(someObjects: PlantLinks): String {
-        return Gson().toJson(someObjects)
+    fun plantLinksToString(someObjects: PlantLinks?): String? {
+        return someObjects?.let { Gson().toJson(it) }
     }
 }

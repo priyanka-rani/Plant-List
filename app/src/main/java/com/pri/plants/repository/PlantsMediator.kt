@@ -32,7 +32,7 @@ class PlantsMediator @Inject constructor(
             // from where it left off. For REFRESH, pass null to load the
             // first page.
             val loadKey = when (loadType) {
-                LoadType.REFRESH -> null
+                LoadType.REFRESH -> 1 /*reset the page*/
 
                 LoadType.PREPEND -> return MediatorResult.Success(
                         endOfPaginationReached = true
@@ -62,10 +62,10 @@ class PlantsMediator @Inject constructor(
             // Store loaded data, and next key in transaction, so that
             // they're always consistent.
             database.withTransaction {
-                /*if (loadType == LoadType.REFRESH) {
-                    remoteKeyDao.deleteByQuery()
-                    plantDao.clearAll()
-                }*/
+                if (loadType == LoadType.REFRESH) {
+                    remoteKeyDao.deleteKey()
+                   /* plantDao.clearAll()*/
+                }
 
                 // Update RemoteKey for this query.
                 response.links.next?.substringAfterLast("=")?.toIntOrNull()?.let {

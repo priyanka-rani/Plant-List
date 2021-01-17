@@ -8,7 +8,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pri.plants.data.Plant
-import com.pri.plants.databinding.ListItemPlantBinding
+import com.pri.plants.databinding.ListItemBinding
 import com.pri.plants.ui.main.MainFragmentDirections
 
 /**
@@ -18,7 +18,7 @@ class PlantAdapter : PagingDataAdapter<Plant, RecyclerView.ViewHolder>(PlantDiff
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PlantViewHolder(
-            ListItemPlantBinding.inflate(
+            ListItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -32,10 +32,10 @@ class PlantAdapter : PagingDataAdapter<Plant, RecyclerView.ViewHolder>(PlantDiff
     }
 
     class PlantViewHolder(
-        private val binding: ListItemPlantBinding
+        private val binding: ListItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.setClickListener {
+            binding.root.setOnClickListener {
                 binding.plant?.let { plant ->
                     navigateToPlant(plant, it)
                 }

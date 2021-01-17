@@ -26,6 +26,6 @@ class PlantsRepository @Inject constructor(
     fun getPlant(plantId: Int?) = appDatabase.plantDao().getPlant(plantId)
 
     companion object {
-        private const val DEFAULT_PAGE_SIZE = 30
+        const val DEFAULT_PAGE_SIZE = 30
     }
 }

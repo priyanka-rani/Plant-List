@@ -24,7 +24,7 @@
 
         <variable
             name="viewModel"
-            type="com.pri.plants.ui.plantdetails.PlantDetailsViewModel" />
+            type="com.pri.plants.ui.details.DetailsViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -66,6 +66,8 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetLeft="0dp"
                     android:layout_height="?attr/actionBarSize"
                     app:contentInsetStartWithNavigation="0dp"
                     app:layout_collapseMode="pin"
@@ -136,9 +138,7 @@
                     style="?android:attr/textAppearanceMedium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginEnd="@dimen/margin_small"
                     android:minHeight="@dimen/plant_description_min_height"
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"

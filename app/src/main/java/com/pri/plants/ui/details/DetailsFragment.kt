@@ -1,4 +1,4 @@
-package com.pri.plants.ui.plantdetails
+package com.pri.plants.ui.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,25 +7,24 @@ import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.pri.plants.adapters.PlantAdapter
-import com.pri.plants.databinding.FragmentPlantDetailBinding
+import com.pri.plants.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PlantDetailsFragment : Fragment() {
+class DetailsFragment : Fragment() {
     private val adapter = PlantAdapter()
-    private val plantViewModel: PlantDetailsViewModel by viewModels()
-    private val args: PlantDetailsFragmentArgs by navArgs()
+    private val plantViewModel: DetailsViewModel by viewModels()
+    private val args: DetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         plantViewModel.plantId.value = args.plantId
-        val binding = FragmentPlantDetailBinding.inflate(
+        val binding = FragmentDetailBinding.inflate(
             inflater,
             container,
             false

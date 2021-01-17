@@ -33,7 +33,7 @@ interface ApiService {
 
     @GET("plants")
     suspend fun getPlants(
-            @Query("page") page: Int?,
+            @Query("page") page: Int,
             @Query("token") token: String = BuildConfig.API_TOKEN
     ): PlantListResponse
 

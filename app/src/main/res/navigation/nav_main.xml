@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/mainFragment"
-    android:id="@+id/nav_main">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.pri.plants.ui.main.MainFragment"
         tools:layout="@layout/main_fragment">
-        <action android:id="@+id/toDetailsFrargment"
+        <action
+            android:id="@+id/toDetailsFrargment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.pri.plants.ui.plantdetails.PlantDetailsFragment"
-        tools:layout="@layout/fragment_plant_detail">
+        android:name="com.pri.plants.ui.details.DetailsFragment"
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="plantId"
             app:argType="integer" />
     </fragment>
-
 </navigation>
