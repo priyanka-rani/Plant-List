@@ -20,11 +20,11 @@
 
     <data>
 
-        <import type="com.pri.plants.data.Plant" />
+        <import type="com.pri.plantae.data.Plant" />
 
         <variable
             name="viewModel"
-            type="com.pri.plants.ui.details.DetailsViewModel" />
+            type="com.pri.plantae.ui.details.DetailsViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

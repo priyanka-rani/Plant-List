@@ -11,7 +11,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.pri.plants"
+        applicationId "com.pri.plantae"
         minSdkVersion 18
         targetSdkVersion 30
         versionCode 1
@@ -20,7 +20,7 @@ android {
         buildConfigField "String", "BASE_URL", BASE_URL
         buildConfigField "String", "API_TOKEN", API_TOKEN
 
-        testInstrumentationRunner "com.pri.plants.utilities.MainTestRunner"
+        testInstrumentationRunner "com.pri.planae.utilities.MainTestRunner"
     }
 
     buildTypes {

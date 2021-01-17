@@ -21,7 +21,7 @@
     <data>
         <variable
             name="plant"
-            type="com.pri.plants.data.Plant"/>
+            type="com.pri.plantae.data.Plant"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView

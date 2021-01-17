@@ -6,7 +6,7 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.pri.plants.ui.main.MainFragment"
+        android:name="com.pri.plantae.ui.main.MainFragment"
         tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/toDetailsFrargment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.pri.plants.ui.details.DetailsFragment"
+        android:name="com.pri.plantae.ui.details.DetailsFragment"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="plantId"
