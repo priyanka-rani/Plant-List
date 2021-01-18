@@ -1,5 +1,5 @@
 # Plantae-Android
-This is a sample app that uses Android Architecture Components and JetPack to show List of Plants and their details from public repository. The App follows Android development best practices with Android Jetpack as advised by Google. It is partialy based on Google's Android Sunfower App, Github browser and IoSched App. All of those are great example of Android Architecture Components and Jetpack. It loads data from network, uses Room for persists data locally if app is used without internet and also uses Jetpack's Paging3 Library for Pagination. It also provides example of Unit Testing.
+This is a sample app that uses Android Architecture Components and JetPack to show List of Plants and their details from public repository. The App follows Android development best practices with Android Jetpack as advised by Google. It is partialy based on Google's Android Sunfower App, Github browser and Iosched App. All of those are great example of Android Architecture Components and Jetpack. It loads data from network, uses Room for persists data locally if app is used without internet and also uses Jetpack's Paging3 Library for Pagination. It also provides example of Unit Testing.
 
 **Plant List Api From:**
 
